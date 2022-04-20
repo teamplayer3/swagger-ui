@@ -2,7 +2,7 @@
 name = "hyper-routerify-swagger-ui"
 version = "0.1.5"
 authors = ["teamplayer3 <alex.teamplayer@gmail.com>"]
-edition = "2021"
+edition = "2018"
 description = "Swagger-ui for rust applications with hyper and routerify integration"
 license = "MIT"
 
