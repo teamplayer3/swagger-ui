@@ -12,7 +12,7 @@ license = "MIT"
 swagger-ui = { version = "0.1", path = "../swagger-ui" }
 
 http = "0.2.6"
-routerify = "3.0.0"
+routerify = {version = "3.0.0", default-feature = false }
 serde_json = "1.0"
 mime_guess = "2.0.4"
 hyper = "0.14.18"
