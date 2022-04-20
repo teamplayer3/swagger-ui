@@ -1,6 +1,6 @@
 [package]
 name = "hyper-routerify-swagger-ui"
-version = "0.1.0"
+version = "0.1.5"
 authors = ["teamplayer3 <alex.teamplayer@gmail.com>"]
 edition = "2021"
 description = "Swagger-ui for rust applications with hyper and routerify integration"
@@ -9,7 +9,7 @@ license = "MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-swagger-ui = { version = "0.1.5", path = "../swagger-ui" }
+swagger-ui = { version = "0.1", path = "../swagger-ui" }
 
 http = "0.2.6"
 routerify = {version = "3.0.0", default-features = false }
