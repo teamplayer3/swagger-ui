@@ -6,6 +6,8 @@ use mime_guess::MimeGuess;
 use routerify::{ext::RequestExt, Router, RouterBuilder};
 use swagger_ui::{Assets, Config, Spec};
 
+pub use swagger_ui;
+
 const CONFIG_FILE_PATH: &str = "/swagger-ui-config.json";
 
 struct SwaggerData {
