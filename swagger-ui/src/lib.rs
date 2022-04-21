@@ -1,10 +1,30 @@
+// use include_dir::Dir;
 use rust_embed::RustEmbed;
 use serde::{Deserialize, Serialize};
 
 /// Assets from swagger-ui-dist
+// #[cfg_attr(not(feature = "include-assets"), derive(RustEmbed))]
+// #[cfg_attr(not(feature = "include-assets"), folder = "./dist/")]
 #[derive(RustEmbed)]
 #[folder = "./dist/"]
+
 pub struct Assets;
+
+// #[cfg(feature = "include-assets")]
+// static DIST_DIR: Dir<'_> = include_dir::include_dir!("$CARGO_MANIFEST_DIR/dist");
+
+// #[cfg(feature = "include-assets")]
+// impl RustEmbed for Assets {
+//     fn get(file_path: &str) -> Option<std::borrow::Cow<'static, [u8]>> {
+//         DIST_DIR
+//             .get_file(file_path)
+//             .and_then(|f| Some(std::borrow::Cow::Borrowed(f.contents())))
+//     }
+
+//     fn iter() -> rust_embed::Filenames {
+//         todo!()
+//     }
+// }
 
 /// Contains a named url.
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -62,7 +82,7 @@ pub struct Spec {
     /// Spec file name
     pub name: String,
     /// Spec file content
-    pub content: &'static [u8]
+    pub content: &'static [u8],
 }
 
 /// Macro used to create `Spec` struct,
@@ -72,7 +92,7 @@ macro_rules! swagger_spec_file {
     ($name: literal) => {
         swagger_ui::Spec {
             name: $name.to_string(),
-            content: include_bytes!($name)
+            content: include_bytes!($name),
         }
     };
 }
@@ -160,8 +180,8 @@ impl Default for Config {
 
 #[cfg(test)]
 mod tests {
-    use std::path::Path;
     use crate::Assets;
+    use std::path::Path;
 
     fn asset_list() -> [&'static str; 8] {
         [
